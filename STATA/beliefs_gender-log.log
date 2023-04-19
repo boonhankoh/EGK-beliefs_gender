@@ -1,0 +1,2624 @@
+----------------------------------------------------------------------------------------------------------------------------------------
+      name:  BeliefsGender
+       log:  C:\Users\bkd19zgu\Dropbox\University\Research\Projects\Beliefs-Gender\No Discretionary Payments\JEBO Materials\Supplementar
+> y Materials\STATA\beliefs_gender-log.log
+  log type:  text
+ opened on:  14 Apr 2023, 16:03:56
+
+. 
+. *******************************************************************************
+. 
+. /*
+> Table 2: OLS regressions of evaluators' posterior belief that the leader has chosen high investment, at pooled level and by the leader
+> 's gender
+> */
+. 
+. use "Data/beliefs_gender-merged-state.dta", clear
+
+. keep if LTRoleMember
+(1,160 observations deleted)
+
+. keep if LTInconsistent==0 & LTNonupdate==0
+(740 observations deleted)
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =      1,600
+                                                F(3, 159)         =     210.86
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5364
+                                                Root MSE          =     2.2588
+
+                                     (Std. err. adjusted for 160 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .6236727   .0406103    15.36   0.000     .5434674    .7038779
+LogitStateGood |   .7826837   .1165837     6.71   0.000     .5524314    1.012936
+ LogitStateBad |   1.064155   .0938586    11.34   0.000     .8787841    1.249525
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.3763273   .0406103    -9.27   0.000    -.4565326   -.2961221
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.2173163   .1165837    -1.86   0.064    -.4475686     .012936
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   .0641546   .0938586     0.68   0.495    -.1212159     .249525
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if surveyLeaderMale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        780
+                                                F(3, 77)          =     104.01
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5295
+                                                Root MSE          =     2.4319
+
+                                      (Std. err. adjusted for 78 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .5980134   .0531602    11.25   0.000     .4921579    .7038689
+LogitStateGood |   .8538012   .2102862     4.06   0.000     .4350679    1.272535
+ LogitStateBad |   1.286815   .1498965     8.58   0.000     .9883331    1.585297
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.4019866   .0531602    -7.56   0.000    -.5078421   -.2961311
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.1461988   .2102862    -0.70   0.489    -.5649321    .2725345
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   .2868152   .1498965     1.91   0.059    -.0116669    .5852973
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if surveyLeaderFemale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        820
+                                                F(3, 81)          =     112.60
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5527
+                                                Root MSE          =     2.0678
+
+                                      (Std. err. adjusted for 82 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .6575296   .0633328    10.38   0.000     .5315172     .783542
+LogitStateGood |   .7245866   .1042943     6.95   0.000     .5170738    .9320995
+ LogitStateBad |   .8428041   .1097418     7.68   0.000     .6244523    1.061156
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.3424704   .0633328    -5.41   0.000    -.4684828    -.216458
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.2754134   .1042943    -2.64   0.010    -.4829262   -.0679005
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.1571959   .1097418    -1.43   0.156    -.3755477     .061156
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior i.surveyLeaderFemale#c.LogitPrior i.surveyLeaderFemale#c.LogitStateGood i.surveyLeaderFemale#c.LogitStateBad, nocon
+>  vce(cluster ID)
+
+Linear regression                               Number of obs     =      1,600
+                                                F(6, 159)         =     108.92
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5398
+                                                Root MSE          =     2.2526
+
+                                                          (Std. err. adjusted for 160 clusters in ID)
+-----------------------------------------------------------------------------------------------------
+                                    |               Robust
+                     LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------------------+----------------------------------------------------------------
+    surveyLeaderFemale#c.LogitPrior |
+                                 0  |   .5980134    .052999    11.28   0.000     .4933405    .7026863
+                                 1  |   .6575296   .0631647    10.41   0.000     .5327795    .7822797
+                                    |
+surveyLeaderFemale#c.LogitStateGood |
+                                 0  |   .8538012   .2096487     4.07   0.000     .4397459    1.267857
+                                 1  |   .7245866   .1040175     6.97   0.000     .5191524    .9300209
+                                    |
+ surveyLeaderFemale#c.LogitStateBad |
+                                 0  |   1.286815   .1494421     8.61   0.000     .9916676    1.581963
+                                 1  |   .8428041   .1094507     7.70   0.000     .6266395    1.058969
+-----------------------------------------------------------------------------------------------------
+
+. testparm surveyLeaderFemale#c.LogitPrior, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitPrior + 1.surveyLeaderFemale#c.LogitPrior = 0
+
+       F(  1,   159) =    0.52
+            Prob > F =    0.4715
+
+. testparm surveyLeaderFemale#c.LogitStateGood, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateGood + 1.surveyLeaderFemale#c.LogitStateGood = 0
+
+       F(  1,   159) =    0.30
+            Prob > F =    0.5816
+
+. testparm surveyLeaderFemale#c.LogitStateBad, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateBad + 1.surveyLeaderFemale#c.LogitStateBad = 0
+
+       F(  1,   159) =    5.75
+            Prob > F =    0.0177
+
+. 
+. *******************************************************************************
+. 
+. /*
+> Table 3: OLS regressions of evaluators' posterior belief that the leader has chosen high investment, by the leader's gender and evalua
+> tor's gender
+> */
+. 
+. use "Data/beliefs_gender-merged-state.dta", clear
+
+. keep if LTRoleMember
+(1,160 observations deleted)
+
+. keep if LTInconsistent==0 & LTNonupdate==0
+(740 observations deleted)
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if Female & surveyLeaderMale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        410
+                                                F(3, 40)          =      65.16
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.6192
+                                                Root MSE          =     1.9791
+
+                                      (Std. err. adjusted for 41 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .6810896   .0858105     7.94   0.000       .50766    .8545191
+LogitStateGood |   .8115758   .1679456     4.83   0.000     .4721451    1.151006
+ LogitStateBad |   .9624737   .1497447     6.43   0.000     .6598284    1.265119
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.3189104   .0858105    -3.72   0.001      -.49234   -.1454809
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.1884242   .1679456    -1.12   0.269    -.5278549    .1510064
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.0375263   .1497447    -0.25   0.803    -.3401716     .265119
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if Female & surveyLeaderFemale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        420
+                                                F(3, 41)          =      54.87
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5604
+                                                Root MSE          =     1.9451
+
+                                      (Std. err. adjusted for 42 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .6212234   .1014578     6.12   0.000     .4163253    .8261216
+LogitStateGood |   .8201081   .1657069     4.95   0.000     .4854563     1.15476
+ LogitStateBad |   .9226558   .1768308     5.22   0.000     .5655387    1.279773
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.3787766   .1014578    -3.73   0.001    -.5836747   -.1738784
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.1798919   .1657069    -1.09   0.284    -.5145437    .1547599
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.0773442   .1768308    -0.44   0.664    -.4344613    .2797729
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior i.surveyLeaderFemale#c.LogitPrior i.surveyLeaderFemale#c.LogitStateGood i.surveyLeaderFemale#c.LogitStateBad if Fem
+> ale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        830
+                                                F(6, 82)          =      60.69
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5920
+                                                Root MSE          =     1.9619
+
+                                                           (Std. err. adjusted for 83 clusters in ID)
+-----------------------------------------------------------------------------------------------------
+                                    |               Robust
+                     LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------------------+----------------------------------------------------------------
+    surveyLeaderFemale#c.LogitPrior |
+                                 0  |   .6810896   .0853218     7.98   0.000     .5113574    .8508218
+                                 1  |   .6212234   .1009159     6.16   0.000     .4204696    .8219773
+                                    |
+surveyLeaderFemale#c.LogitStateGood |
+                                 0  |   .8115758    .166989     4.86   0.000     .4793814     1.14377
+                                 1  |   .8201081   .1648218     4.98   0.000     .4922251    1.147991
+                                    |
+ surveyLeaderFemale#c.LogitStateBad |
+                                 0  |   .9624737   .1488918     6.46   0.000     .6662805    1.258667
+                                 1  |   .9226558   .1758863     5.25   0.000     .5727619     1.27255
+-----------------------------------------------------------------------------------------------------
+
+. testparm surveyLeaderFemale#c.LogitPrior, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitPrior + 1.surveyLeaderFemale#c.LogitPrior = 0
+
+       F(  1,    82) =    0.21
+            Prob > F =    0.6517
+
+. testparm surveyLeaderFemale#c.LogitStateGood, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateGood + 1.surveyLeaderFemale#c.LogitStateGood = 0
+
+       F(  1,    82) =    0.00
+            Prob > F =    0.9711
+
+. testparm surveyLeaderFemale#c.LogitStateBad, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateBad + 1.surveyLeaderFemale#c.LogitStateBad = 0
+
+       F(  1,    82) =    0.03
+            Prob > F =    0.8632
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if !Female & surveyLeaderMale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        370
+                                                F(3, 36)          =      51.68
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.4788
+                                                Root MSE          =     2.8152
+
+                                      (Std. err. adjusted for 37 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .5334538   .0648756     8.22   0.000       .40188    .6650276
+LogitStateGood |   .9153535   .4035225     2.27   0.029     .0969719    1.733735
+ LogitStateBad |   1.631459   .2617248     6.23   0.000     1.100656    2.162261
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.4665462   .0648756    -7.19   0.000      -.59812   -.3349724
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.0846465   .4035225    -0.21   0.835    -.9030281    .7337351
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   .6314587   .2617248     2.41   0.021     .1006563    1.162261
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if !Female & surveyLeaderFemale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        400
+                                                F(3, 39)          =      53.86
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5507
+                                                Root MSE          =     2.1856
+
+                                      (Std. err. adjusted for 40 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .6933515   .0703578     9.85   0.000     .5510393    .8356637
+LogitStateGood |   .6304255    .137647     4.58   0.000     .3520083    .9088428
+ LogitStateBad |   .7528235    .127512     5.90   0.000      .494906    1.010741
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.3066485   .0703578    -4.36   0.000    -.4489607   -.1643363
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.3695745    .137647    -2.68   0.011    -.6479917   -.0911572
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.2471765    .127512    -1.94   0.060     -.505094    .0107409
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior i.surveyLeaderFemale#c.LogitPrior i.surveyLeaderFemale#c.LogitStateGood i.surveyLeaderFemale#c.LogitStateBad if !Fe
+> male, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        770
+                                                F(6, 76)          =      53.40
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5098
+                                                Root MSE          =     2.5078
+
+                                                           (Std. err. adjusted for 77 clusters in ID)
+-----------------------------------------------------------------------------------------------------
+                                    |               Robust
+                     LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------------------+----------------------------------------------------------------
+    surveyLeaderFemale#c.LogitPrior |
+                                 0  |   .5334538   .0644476     8.28   0.000     .4050953    .6618123
+                                 1  |   .6933515   .0699808     9.91   0.000     .5539727    .8327303
+                                    |
+surveyLeaderFemale#c.LogitStateGood |
+                                 0  |   .9153535   .4008603     2.28   0.025     .1169709    1.713736
+                                 1  |   .6304255   .1369093     4.60   0.000     .3577471    .9031039
+                                    |
+ surveyLeaderFemale#c.LogitStateBad |
+                                 0  |   1.631459   .2599981     6.27   0.000     1.113628     2.14929
+                                 1  |   .7528235   .1268286     5.94   0.000     .5002223    1.005425
+-----------------------------------------------------------------------------------------------------
+
+. testparm surveyLeaderFemale#c.LogitPrior, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitPrior + 1.surveyLeaderFemale#c.LogitPrior = 0
+
+       F(  1,    76) =    2.82
+            Prob > F =    0.0969
+
+. testparm surveyLeaderFemale#c.LogitStateGood, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateGood + 1.surveyLeaderFemale#c.LogitStateGood = 0
+
+       F(  1,    76) =    0.45
+            Prob > F =    0.5032
+
+. testparm surveyLeaderFemale#c.LogitStateBad, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateBad + 1.surveyLeaderFemale#c.LogitStateBad = 0
+
+       F(  1,    76) =    9.23
+            Prob > F =    0.0033
+
+. 
+. *******************************************************************************
+. 
+. /*
+> Table 4: OLS regressions of evaluators' posterior belief that the leader has chosen high investment, by the leader's gender and evalua
+> tor's investment decision
+> */
+. 
+. use "Data/beliefs_gender-merged-state.dta", clear
+
+. keep if LTRoleMember
+(1,160 observations deleted)
+
+. keep if LTInconsistent==0 & LTNonupdate==0
+(740 observations deleted)
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if !LTHighEff & surveyLeaderMale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        506
+                                                F(3, 70)          =      62.90
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5748
+                                                Root MSE          =     2.2885
+
+                                      (Std. err. adjusted for 71 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .5617986   .0764576     7.35   0.000     .4093087    .7142885
+LogitStateGood |   .4713577   .2038335     2.31   0.024     .0648247    .8778908
+ LogitStateBad |    1.28955   .2326832     5.54   0.000     .8254779    1.753622
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.4382014   .0764576    -5.73   0.000    -.5906913   -.2857115
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.5286423   .2038335    -2.59   0.012    -.9351753   -.1221092
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   .2895499   .2326832     1.24   0.218    -.1745221    .7536219
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if !LTHighEff & surveyLeaderFemale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        548
+                                                F(3, 77)          =     116.15
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.6609
+                                                Root MSE          =     1.9313
+
+                                      (Std. err. adjusted for 78 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .6691294   .0607145    11.02   0.000     .5482313    .7900274
+LogitStateGood |   .6377678   .1189391     5.36   0.000     .4009297    .8746058
+ LogitStateBad |   .9798116   .1415427     6.92   0.000     .6979641    1.261659
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.3308706   .0607145    -5.45   0.000    -.4517687   -.2099726
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.3622322   .1189391    -3.05   0.003    -.5990703   -.1253942
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.0201884   .1415427    -0.14   0.887    -.3020359    .2616591
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior i.surveyLeaderFemale#c.LogitPrior i.surveyLeaderFemale#c.LogitStateGood i.surveyLeaderFemale#c.LogitStateBad if !LT
+> HighEff, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =      1,054
+                                                F(6, 148)         =      90.03
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.6171
+                                                Root MSE          =     2.1103
+
+                                                          (Std. err. adjusted for 149 clusters in ID)
+-----------------------------------------------------------------------------------------------------
+                                    |               Robust
+                     LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------------------+----------------------------------------------------------------
+    surveyLeaderFemale#c.LogitPrior |
+                                 0  |   .5617986   .0762035     7.37   0.000     .4112112     .712386
+                                 1  |   .6691294   .0605607    11.05   0.000     .5494539    .7888048
+                                    |
+surveyLeaderFemale#c.LogitStateGood |
+                                 0  |   .4713577   .2031559     2.32   0.022     .0698968    .8728187
+                                 1  |   .6377678   .1186378     5.38   0.000     .4033249    .8722106
+                                    |
+ surveyLeaderFemale#c.LogitStateBad |
+                                 0  |    1.28955   .2319098     5.56   0.000     .8312678    1.747832
+                                 1  |   .9798116   .1411841     6.94   0.000     .7008145    1.258809
+-----------------------------------------------------------------------------------------------------
+
+. testparm surveyLeaderFemale#c.LogitPrior, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitPrior + 1.surveyLeaderFemale#c.LogitPrior = 0
+
+       F(  1,   148) =    1.22
+            Prob > F =    0.2720
+
+. testparm surveyLeaderFemale#c.LogitStateGood, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateGood + 1.surveyLeaderFemale#c.LogitStateGood = 0
+
+       F(  1,   148) =    0.50
+            Prob > F =    0.4805
+
+. testparm surveyLeaderFemale#c.LogitStateBad, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateBad + 1.surveyLeaderFemale#c.LogitStateBad = 0
+
+       F(  1,   148) =    1.30
+            Prob > F =    0.2558
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if LTHighEff & surveyLeaderMale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        274
+                                                F(3, 54)          =      72.49
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.4789
+                                                Root MSE          =      2.621
+
+                                      (Std. err. adjusted for 55 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .6087735   .0722797     8.42   0.000     .4638614    .7536856
+LogitStateGood |   1.434455   .4268093     3.36   0.001     .5787535    2.290156
+ LogitStateBad |   1.407376   .1964196     7.17   0.000     1.013578    1.801174
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.3912265   .0722797    -5.41   0.000    -.5361386   -.2463144
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   .4344545   .4268093     1.02   0.313    -.4212465    1.290156
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   .4073759   .1964196     2.07   0.043     .0135783    .8011735
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if LTHighEff & surveyLeaderFemale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        272
+                                                F(3, 57)          =      21.64
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.2383
+                                                Root MSE          =     2.2669
+
+                                      (Std. err. adjusted for 58 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .4574977   .2322891     1.97   0.054    -.0076532    .9226486
+LogitStateGood |   .9702206   .1823473     5.32   0.000     .6050764    1.335365
+ LogitStateBad |    .496055   .2094718     2.37   0.021     .0765949     .915515
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.5425023   .2322891    -2.34   0.023    -1.007653   -.0773514
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.0297794   .1823473    -0.16   0.871    -.3949236    .3353647
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   -.503945   .2094718    -2.41   0.019    -.9234051    -.084485
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior i.surveyLeaderFemale#c.LogitPrior i.surveyLeaderFemale#c.LogitStateGood i.surveyLeaderFemale#c.LogitStateBad if LTH
+> ighEff, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        546
+                                                F(6, 112)         =      47.41
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.3978
+                                                Root MSE          =      2.451
+
+                                                          (Std. err. adjusted for 113 clusters in ID)
+-----------------------------------------------------------------------------------------------------
+                                    |               Robust
+                     LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------------------+----------------------------------------------------------------
+    surveyLeaderFemale#c.LogitPrior |
+                                 0  |   .6087735   .0720057     8.45   0.000     .4661034    .7514436
+                                 1  |   .4574977    .231513     1.98   0.051    -.0012156     .916211
+                                    |
+surveyLeaderFemale#c.LogitStateGood |
+                                 0  |   1.434455   .4251912     3.37   0.001     .5919926    2.276916
+                                 1  |   .9702206    .181738     5.34   0.000       .61013    1.330311
+                                    |
+ surveyLeaderFemale#c.LogitStateBad |
+                                 0  |   1.407376    .195675     7.19   0.000     1.019671    1.795081
+                                 1  |    .496055   .2087719     2.38   0.019     .0824001    .9097098
+-----------------------------------------------------------------------------------------------------
+
+. testparm surveyLeaderFemale#c.LogitPrior, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitPrior + 1.surveyLeaderFemale#c.LogitPrior = 0
+
+       F(  1,   112) =    0.39
+            Prob > F =    0.5339
+
+. testparm surveyLeaderFemale#c.LogitStateGood, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateGood + 1.surveyLeaderFemale#c.LogitStateGood = 0
+
+       F(  1,   112) =    1.01
+            Prob > F =    0.3176
+
+. testparm surveyLeaderFemale#c.LogitStateBad, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateBad + 1.surveyLeaderFemale#c.LogitStateBad = 0
+
+       F(  1,   112) =   10.14
+            Prob > F =    0.0019
+
+. 
+. *******************************************************************************
+. 
+. /*
+> Figure 1: Evaluators' posterior beliefs that the leader has chosen high investment against Bayesian posteriors, by the leader's outcom
+> es
+> */
+. 
+. use "Data/beliefs_gender-merged-state.dta", clear
+
+. keep if LTRoleMember
+(1,160 observations deleted)
+
+. keep if LTInconsistent==0 & LTNonupdate==0
+(740 observations deleted)
+
+. 
+. global covariates "Age i.Economics i.UG i.Australian PastExp CRTScore"
+
+. 
+. local p=0.75
+
+. local q=1-`p'
+
+. gen LTBeliefTheory=.
+(1,600 missing values generated)
+
+. replace LTBeliefTheory = ((`p'*LTBeliefPrior/100)/(`p'*LTBeliefPrior/100+`q'*(1-LTBeliefPrior/100)))*100 if StateSuccess
+(800 real changes made)
+
+. replace LTBeliefTheory = ((`q'*LTBeliefPrior/100)/(`q'*LTBeliefPrior/100+`p'*(1-LTBeliefPrior/100)))*100 if StateFailure
+(800 real changes made)
+
+. 
+. // Panel (a): Low outcomes
+. 
+. qui reg LTBeliefPosterior i.surveyLeaderMale##c.LTBeliefTheory i.LTHighEff RGNumRiskyChoice ParameterReturnDiff i.ParameterZero $covar
+> iates i.Round if StateFailure, vce(cluster ID)
+
+. 
+. lincom _cons
+
+ ( 1)  _cons = 0
+
+------------------------------------------------------------------------------
+LTBeliefPo~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   5.945394   6.282731     0.95   0.345    -6.462976    18.35376
+------------------------------------------------------------------------------
+
+. global cons_f=r(estimate)
+
+. lincom _cons+1.surveyLeaderMale
+
+ ( 1)  1.surveyLeaderMale + _cons = 0
+
+------------------------------------------------------------------------------
+LTBeliefPo~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |    7.40497   6.271288     1.18   0.239    -4.980801    19.79074
+------------------------------------------------------------------------------
+
+. global cons_m=r(estimate)
+
+. lincom LTBeliefTheory
+
+ ( 1)  LTBeliefTheory = 0
+
+------------------------------------------------------------------------------
+LTBeliefPo~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   .5829536   .0709469     8.22   0.000     .4428337    .7230735
+------------------------------------------------------------------------------
+
+. global slope_f=r(estimate)
+
+. lincom LTBeliefTheory+1.surveyLeaderMale#c.LTBeliefTheory
+
+ ( 1)  LTBeliefTheory + 1.surveyLeaderMale#c.LTBeliefTheory = 0
+
+------------------------------------------------------------------------------
+LTBeliefPo~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |    .404797   .0730709     5.54   0.000     .2604822    .5491118
+------------------------------------------------------------------------------
+
+. global slope_m=r(estimate)
+
+. 
+. twoway (function y = x, range(0 100) lcolor(black%100) lpattern(longdash) lwidth(thin)) ///
+>         (function y = x*$slope_m + $cons_m, range(0 100) lcolor(black%25) lpattern(solid) lwidth(thick)) ///
+>         (function y = x*$slope_f + $cons_f, range(0 100) lcolor(black%100) lpattern(shortdash_dot) lwidth(thick)) ///
+>         , ///
+>         legend(order(2 "Male leaders" 3 "Female leaders")) ///
+>         xtitle("Bayesian Posterior") xscale(range(0 100)) xlabel(0(20)100) ///
+>         ytitle("Reported Posterior") yscale(range(0 100)) ylabel(0(20)100) ///
+>         graphregion(color(white)) bgcolor(white)
+
+. graph export "Figures/Figure1a.png", replace
+(file Figures/Figure1a.png not found)
+file Figures/Figure1a.png saved as PNG format
+
+. window manage close graph _all
+
+. 
+. // Panel (b): High outcomes
+. 
+. qui reg LTBeliefPosterior i.surveyLeaderMale##c.LTBeliefTheory i.LTHighEff RGNumRiskyChoice ParameterReturnDiff i.ParameterZero $covar
+> iates i.Round if StateSuccess, vce(cluster ID)
+
+. 
+. lincom _cons
+
+ ( 1)  _cons = 0
+
+------------------------------------------------------------------------------
+LTBeliefPo~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |    10.2673    10.0961     1.02   0.311    -9.672453    30.20705
+------------------------------------------------------------------------------
+
+. global cons_f=r(estimate)
+
+. lincom _cons+1.surveyLeaderMale
+
+ ( 1)  1.surveyLeaderMale + _cons = 0
+
+------------------------------------------------------------------------------
+LTBeliefPo~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   10.22105   8.552686     1.20   0.234    -6.670471    27.11257
+------------------------------------------------------------------------------
+
+. global cons_m=r(estimate)
+
+. lincom LTBeliefTheory
+
+ ( 1)  LTBeliefTheory = 0
+
+------------------------------------------------------------------------------
+LTBeliefPo~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   .6674087   .0688177     9.70   0.000      .531494    .8033234
+------------------------------------------------------------------------------
+
+. global slope_f=r(estimate)
+
+. lincom LTBeliefTheory+1.surveyLeaderMale#c.LTBeliefTheory
+
+ ( 1)  LTBeliefTheory + 1.surveyLeaderMale#c.LTBeliefTheory = 0
+
+------------------------------------------------------------------------------
+LTBeliefPo~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   .6642476    .046248    14.36   0.000      .572908    .7555873
+------------------------------------------------------------------------------
+
+. global slope_m=r(estimate)
+
+. 
+. twoway (function y = x, range(0 100) lcolor(black%100) lpattern(longdash) lwidth(thin)) ///
+>         (function y = x*$slope_m + $cons_m, range(0 100) lcolor(black%25) lpattern(solid) lwidth(thick)) ///
+>         (function y = x*$slope_f + $cons_f, range(0 100) lcolor(black%100) lpattern(shortdash_dot) lwidth(thick)) ///
+>         , ///
+>         legend(order(2 "Male leaders" 3 "Female leaders")) ///
+>         xtitle("Bayesian Posterior") xscale(range(0 100)) xlabel(0(20)100) ///
+>         ytitle("Reported Posterior") yscale(range(0 100)) ylabel(0(20)100) ///
+>         graphregion(color(white)) bgcolor(white)
+
+. graph export "Figures/Figure1b.png", replace
+(file Figures/Figure1b.png not found)
+file Figures/Figure1b.png saved as PNG format
+
+. window manage close graph _all
+
+. 
+. *******************************************************************************
+. 
+. /*
+> Figure 2: Evaluators' prior belief that the leader has chosen high investment and leaders' investment decisions, by the leader's gende
+> r
+> */
+. 
+. // Panel (a): Evaluator's average prior belief that leader has chosen high investment
+. 
+. use "Data/beliefs_gender-merged-long.dta", clear
+
+. keep if LTRoleMember
+(580 observations deleted)
+
+. keep if LTInconsistent==0 & LTNonupdate==0
+(370 observations deleted)
+
+. 
+. collapse (mean) mean_prior=LTBeliefPrior (sd) sd_prior=LTBeliefPrior (count) n_prior=LTBeliefPrior, by(surveyLeaderMale surveyLeaderFe
+> male)
+
+. 
+. generate hi_prior = mean_prior + invttail(n_prior-1,0.025)*(sd_prior / sqrt(n_prior))
+
+. generate lo_prior = mean_prior - invttail(n_prior-1,0.025)*(sd_prior / sqrt(n_prior))
+
+. 
+. gen group=.
+(2 missing values generated)
+
+. replace group=1 if surveyLeaderMale==1
+(1 real change made)
+
+. replace group=2 if surveyLeaderFemale==1
+(1 real change made)
+
+. 
+. twoway (bar mean_prior group, fcolor(gs6) lcolor(gs6) barwidth(0.75)) ///
+>         (rcap hi_prior lo_prior group, lcolor(black)), ///
+>         xtitle(" ") xlabel(1 "Male Leader" 2 "Female Leader", noticks) ///
+>         xscale(range(0.25 2.75)) ///
+>         yscale(range(0 60)) ylabel(0(20)60, labsize(medlarge) angle(horizontal)) ///
+>         ytitle("Average belief that leader chose high investment", size(medlarge)) ///
+>         legend(off) ///
+>         graphregion(color(white)) bgcolor(white)
+
+. graph export "Figures/Figure2a.png", replace
+(file Figures/Figure2a.png not found)
+file Figures/Figure2a.png saved as PNG format
+
+. window manage close graph _all
+
+. 
+. // Panel (b): Proportion of high investment decisions by leaders
+. 
+. use "Data/beliefs_gender-merged-long.dta", clear
+
+. 
+. collapse (mean) mean_higheff=LTHighEff (sd) sd_higheff=LTHighEff (count) n_higheff=LTHighEff, by(Female)
+
+. 
+. generate hi_higheff = mean_higheff + invttail(n_higheff-1,0.025)*(sd_higheff / sqrt(n_higheff))
+
+. generate lo_higheff = mean_higheff - invttail(n_higheff-1,0.025)*(sd_higheff / sqrt(n_higheff))
+
+. 
+. gen group=.
+(2 missing values generated)
+
+. replace group=1 if !Female
+(1 real change made)
+
+. replace group=2 if Female
+(1 real change made)
+
+. 
+. twoway (bar mean_higheff group, fcolor(gs6) lcolor(gs6) barwidth(0.75)) ///
+>         (rcap hi_higheff lo_higheff group, lcolor(black)), ///
+>         xtitle(" ") xlabel(1 "Male Leader" 2 "Female Leader", noticks) ///
+>         xscale(range(0.25 2.75)) ///
+>         yscale(range(0 0.6)) ylabel(0(0.2)0.6, labsize(medlarge) angle(horizontal)) ///
+>         ytitle("Proportion of leaders choosing high investment", size(medlarge)) ///
+>         legend(off) ///
+>         graphregion(color(white)) bgcolor(white)
+
+. graph export "Figures/Figure2b.png", replace
+(file Figures/Figure2b.png not found)
+file Figures/Figure2b.png saved as PNG format
+
+. window manage close graph _all
+
+. 
+. *******************************************************************************
+. 
+. /*
+> Table B1: OLS regressions of evaluators' posterior belief that the leader has chosen high investment against Bayesian posteriors
+> */
+. 
+. use "Data/beliefs_gender-merged-state.dta", clear
+
+. keep if LTRoleMember
+(1,160 observations deleted)
+
+. keep if LTInconsistent==0 & LTNonupdate==0
+(740 observations deleted)
+
+. 
+. global covariates "Age i.Economics i.UG i.Australian PastExp CRTScore"
+
+. 
+. local p=0.75
+
+. local q=1-`p'
+
+. gen LTBeliefTheory=.
+(1,600 missing values generated)
+
+. replace LTBeliefTheory = ((`p'*LTBeliefPrior/100)/(`p'*LTBeliefPrior/100+`q'*(1-LTBeliefPrior/100)))*100 if StateSuccess
+(800 real changes made)
+
+. replace LTBeliefTheory = ((`q'*LTBeliefPrior/100)/(`q'*LTBeliefPrior/100+`p'*(1-LTBeliefPrior/100)))*100 if StateFailure
+(800 real changes made)
+
+. 
+. reg LTBeliefPosterior i.surveyLeaderMale##c.LTBeliefTheory i.Round if StateFailure, vce(cluster ID)
+
+Linear regression                               Number of obs     =        800
+                                                F(7, 159)         =      18.79
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.3124
+                                                Root MSE          =     18.165
+
+                                                        (Std. err. adjusted for 160 clusters in ID)
+---------------------------------------------------------------------------------------------------
+                                  |               Robust
+                LTBeliefPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+----------------------------------+----------------------------------------------------------------
+               1.surveyLeaderMale |   1.781289    2.38634     0.75   0.456    -2.931722    6.494301
+                   LTBeliefTheory |   .6021846   .0661166     9.11   0.000     .4716046    .7327647
+                                  |
+surveyLeaderMale#c.LTBeliefTheory |
+                               1  |  -.1816327   .0977374    -1.86   0.065    -.3746637    .0113982
+                                  |
+                            Round |
+                               2  |  -.0946528   2.001795    -0.05   0.962    -4.048191    3.858885
+                               3  |  -1.057001   2.033602    -0.52   0.604    -5.073358    2.959356
+                               4  |  -2.837975    1.80799    -1.57   0.118    -6.408748    .7327981
+                               5  |  -2.843791   1.712718    -1.66   0.099    -6.226402    .5388199
+                                  |
+                            _cons |   16.05239   1.982568     8.10   0.000     12.13682    19.96795
+---------------------------------------------------------------------------------------------------
+
+. reg LTBeliefPosterior i.surveyLeaderMale##c.LTBeliefTheory i.LTHighEff RGNumRiskyChoice ParameterReturnDiff i.ParameterZero $covariate
+> s i.Round if StateFailure, vce(cluster ID)
+
+Linear regression                               Number of obs     =        800
+                                                F(17, 159)        =       9.96
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.3301
+                                                Root MSE          =     18.044
+
+                                                        (Std. err. adjusted for 160 clusters in ID)
+---------------------------------------------------------------------------------------------------
+                                  |               Robust
+                LTBeliefPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+----------------------------------+----------------------------------------------------------------
+               1.surveyLeaderMale |   1.459577    2.43886     0.60   0.550    -3.357163    6.276316
+                   LTBeliefTheory |   .5829536   .0709469     8.22   0.000     .4428337    .7230735
+                                  |
+surveyLeaderMale#c.LTBeliefTheory |
+                               1  |  -.1781566   .0967505    -1.84   0.067    -.3692384    .0129252
+                                  |
+                      1.LTHighEff |   1.224727   1.905342     0.64   0.521    -2.538318    4.987771
+                 RGNumRiskyChoice |     .31041   .5789536     0.54   0.593    -.8330211    1.453841
+              ParameterReturnDiff |   .0253179   .0165281     1.53   0.128     -.007325    .0579608
+                  1.ParameterZero |   1.623307   1.361938     1.19   0.235    -1.066515     4.31313
+                              Age |   .2695936   .1460312     1.85   0.067    -.0188175    .5580047
+                      1.Economics |   .4839501   4.535335     0.11   0.915    -8.473319    9.441219
+                             1.UG |   3.807574   2.254937     1.69   0.093    -.6459187    8.261066
+                     1.Australian |  -2.575535   2.245878    -1.15   0.253    -7.011136    1.860067
+                          PastExp |  -.0731542   .4771413    -0.15   0.878    -1.015506     .869198
+                         CRTScore |  -2.059863   .9544216    -2.16   0.032    -3.944842   -.1748843
+                                  |
+                            Round |
+                               2  |  -.1410585   1.990448    -0.07   0.944    -4.072186    3.790068
+                               3  |  -1.595083   2.180546    -0.73   0.466    -5.901653    2.711487
+                               4  |  -2.778325    1.79999    -1.54   0.125    -6.333299    .7766479
+                               5  |  -2.918968   1.699384    -1.72   0.088    -6.275245    .4373087
+                                  |
+                            _cons |   5.945394   6.282731     0.95   0.345    -6.462976    18.35376
+---------------------------------------------------------------------------------------------------
+
+. 
+. reg LTBeliefPosterior i.surveyLeaderMale##c.LTBeliefTheory i.Round if StateSuccess, vce(cluster ID)
+
+Linear regression                               Number of obs     =        800
+                                                F(7, 159)         =      60.91
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5631
+                                                Root MSE          =     18.737
+
+                                                        (Std. err. adjusted for 160 clusters in ID)
+---------------------------------------------------------------------------------------------------
+                                  |               Robust
+                LTBeliefPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+----------------------------------+----------------------------------------------------------------
+               1.surveyLeaderMale |  -1.021669    5.83313    -0.18   0.861    -12.54208    10.49874
+                   LTBeliefTheory |   .6960464   .0674072    10.33   0.000     .5629174    .8291754
+                                  |
+surveyLeaderMale#c.LTBeliefTheory |
+                               1  |   .0096835   .0794333     0.12   0.903     -.147197     .166564
+                                  |
+                            Round |
+                               2  |  -2.738347   1.462628    -1.87   0.063    -5.627032    .1503383
+                               3  |  -4.001709    1.83982    -2.18   0.031    -7.635347   -.3680714
+                               4  |   -3.91642   1.917453    -2.04   0.043    -7.703382   -.1294582
+                               5  |  -3.462691   1.849814    -1.87   0.063    -7.116067    .1906857
+                                  |
+                            _cons |   18.19942   5.226725     3.48   0.001     7.876656    28.52218
+---------------------------------------------------------------------------------------------------
+
+. reg LTBeliefPosterior i.surveyLeaderMale##c.LTBeliefTheory i.LTHighEff RGNumRiskyChoice ParameterReturnDiff i.ParameterZero $covariate
+> s i.Round if StateSuccess, vce(cluster ID)
+
+Linear regression                               Number of obs     =        800
+                                                F(17, 159)        =      45.87
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5825
+                                                Root MSE          =     18.433
+
+                                                        (Std. err. adjusted for 160 clusters in ID)
+---------------------------------------------------------------------------------------------------
+                                  |               Robust
+                LTBeliefPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+----------------------------------+----------------------------------------------------------------
+               1.surveyLeaderMale |   -.046246   5.904806    -0.01   0.994    -11.70822    11.61572
+                   LTBeliefTheory |   .6674087   .0688177     9.70   0.000      .531494    .8033234
+                                  |
+surveyLeaderMale#c.LTBeliefTheory |
+                               1  |   -.003161   .0775556    -0.04   0.968    -.1563331     .150011
+                                  |
+                      1.LTHighEff |   5.836033   1.709889     3.41   0.001     2.459009    9.213056
+                 RGNumRiskyChoice |  -.1110898   .6435372    -0.17   0.863    -1.382073    1.159894
+              ParameterReturnDiff |   .0076055   .0171332     0.44   0.658    -.0262325    .0414435
+                  1.ParameterZero |   1.385377    1.45386     0.95   0.342    -1.485992    4.256746
+                              Age |   .2700815   .1944321     1.39   0.167    -.1139211    .6540842
+                      1.Economics |  -8.172798   2.717717    -3.01   0.003    -13.54028   -2.805318
+                             1.UG |   .9475527   2.575281     0.37   0.713    -4.138618    6.033723
+                     1.Australian |   1.231375   2.545885     0.48   0.629    -3.796737    6.259487
+                          PastExp |   .5865296    .591707     0.99   0.323    -.5820895    1.755149
+                         CRTScore |  -1.185778   1.403583    -0.84   0.399     -3.95785    1.586293
+                                  |
+                            Round |
+                               2  |  -2.308159   1.492693    -1.55   0.124    -5.256222    .6399049
+                               3  |  -4.458959   2.006694    -2.22   0.028    -8.422172    -.495746
+                               4  |  -3.406893   1.892565    -1.80   0.074    -7.144702    .3309154
+                               5  |  -3.151681   1.847429    -1.71   0.090    -6.800347    .4969847
+                                  |
+                            _cons |    10.2673    10.0961     1.02   0.311    -9.672453    30.20705
+---------------------------------------------------------------------------------------------------
+
+. 
+. *******************************************************************************
+. 
+. /*
+> Table B2: Probit regressions of leaders' investment decision
+> */
+. 
+. use "Data/beliefs_gender-merged-long.dta", clear
+
+. global covariates "Age i.Economics i.UG i.Australian PastExp CRTScore"
+
+. 
+. qui probit LTHighEff i.Female DGGivePerc RGNumRiskyChoice ParameterReturnDiff i.ParameterZero i.Round, vce(cluster ID)
+
+. margins, dydx(*) post
+
+Average marginal effects                                 Number of obs = 1,750
+Model VCE: Robust
+
+Expression: Pr(LTHighEff), predict()
+dy/dx wrt:  1.Female DGGivePerc RGNumRiskyChoice ParameterReturnDiff 1.ParameterZero 2.Round 3.Round 4.Round 5.Round
+
+-------------------------------------------------------------------------------------
+                    |            Delta-method
+                    |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
+--------------------+----------------------------------------------------------------
+           1.Female |  -.0026412   .0321243    -0.08   0.934    -.0656037    .0603213
+         DGGivePerc |    .003739   .0007341     5.09   0.000     .0023003    .0051778
+   RGNumRiskyChoice |  -.0073491   .0106569    -0.69   0.490    -.0282363    .0135381
+ParameterReturnDiff |   .0014937   .0002717     5.50   0.000     .0009612    .0020263
+    1.ParameterZero |    .035883   .0208641     1.72   0.085    -.0050099     .076776
+                    |
+              Round |
+                 2  |  -.0090501   .0291078    -0.31   0.756    -.0661003    .0480001
+                 3  |  -.0140175   .0322145    -0.44   0.663    -.0771568    .0491219
+                 4  |    -.05195   .0273646    -1.90   0.058    -.1055836    .0016836
+                 5  |  -.0473869   .0301957    -1.57   0.117    -.1065693    .0117956
+-------------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. 
+. qui probit LTHighEff i.Female DGGivePerc RGNumRiskyChoice ParameterReturnDiff i.ParameterZero i.Round $covariates, vce(cluster ID)
+
+. margins, dydx(*) post
+
+Average marginal effects                                 Number of obs = 1,750
+Model VCE: Robust
+
+Expression: Pr(LTHighEff), predict()
+dy/dx wrt:  1.Female DGGivePerc RGNumRiskyChoice ParameterReturnDiff 1.ParameterZero 2.Round 3.Round 4.Round 5.Round Age 1.Economics
+            1.UG 1.Australian PastExp CRTScore
+
+-------------------------------------------------------------------------------------
+                    |            Delta-method
+                    |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
+--------------------+----------------------------------------------------------------
+           1.Female |   .0064976   .0312056     0.21   0.835    -.0546642    .0676594
+         DGGivePerc |   .0038018   .0007633     4.98   0.000     .0023058    .0052978
+   RGNumRiskyChoice |  -.0079075     .01051    -0.75   0.452    -.0285067    .0126918
+ParameterReturnDiff |   .0014891   .0002716     5.48   0.000     .0009568    .0020214
+    1.ParameterZero |   .0356765   .0209382     1.70   0.088    -.0053615    .0767146
+                    |
+              Round |
+                 2  |  -.0088407   .0291554    -0.30   0.762    -.0659842    .0483028
+                 3  |  -.0139776   .0322754    -0.43   0.665    -.0772361     .049281
+                 4  |  -.0513069    .027459    -1.87   0.062    -.1051256    .0025117
+                 5  |   -.047288   .0302122    -1.57   0.118    -.1065028    .0119268
+                    |
+                Age |    .003671    .003446     1.07   0.287     -.003083     .010425
+        1.Economics |  -.1297019    .053778    -2.41   0.016    -.2351048    -.024299
+               1.UG |   .0673346   .0415669     1.62   0.105     -.014135    .1488042
+       1.Australian |   .0447063   .0448148     1.00   0.318     -.043129    .1325417
+            PastExp |  -.0021158   .0102145    -0.21   0.836    -.0221359    .0179043
+           CRTScore |   .0250235   .0162236     1.54   0.123    -.0067742    .0568212
+-------------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. 
+. *******************************************************************************
+. 
+. /*
+> Table B3: OLS regressions of evaluators' prior belief that the leader has chosen high investment
+> */
+. 
+. use "Data/beliefs_gender-merged-long.dta", clear
+
+. keep if LTRoleMember
+(580 observations deleted)
+
+. keep if LTInconsistent==0 & LTNonupdate==0
+(370 observations deleted)
+
+. global covariates "Age i.Economics i.UG i.Australian PastExp CRTScore"
+
+. 
+. reg LTBeliefPrior ib0.surveyLeaderFemale ib0.Female i.LTHighEff RGNumRiskyChoice ParameterReturnDiff i.ParameterZero i.Round, vce(clus
+> ter ID)
+
+Linear regression                               Number of obs     =        800
+                                                F(10, 159)        =      15.71
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.2262
+                                                Root MSE          =     25.015
+
+                                           (Std. err. adjusted for 160 clusters in ID)
+--------------------------------------------------------------------------------------
+                     |               Robust
+       LTBeliefPrior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------------+----------------------------------------------------------------
+1.surveyLeaderFemale |  -1.192704   2.629006    -0.45   0.651    -6.384982    3.999574
+            1.Female |   2.984131   2.667762     1.12   0.265    -2.284689    8.252951
+         1.LTHighEff |   25.46847   2.560374     9.95   0.000     20.41175     30.5252
+    RGNumRiskyChoice |     1.3408   .9483441     1.41   0.159    -.5321766    3.213776
+ ParameterReturnDiff |   .0914147    .020333     4.50   0.000     .0512571    .1315722
+     1.ParameterZero |   2.059585   1.944891     1.06   0.291    -1.781567    5.900737
+                     |
+               Round |
+                  2  |  -.5339478   2.417813    -0.22   0.826    -5.309119    4.241224
+                  3  |  -5.307333   2.596719    -2.04   0.043    -10.43584   -.1788227
+                  4  |  -3.842128   2.705209    -1.42   0.157    -9.184906     1.50065
+                  5  |  -6.057495   2.577153    -2.35   0.020    -11.14736   -.9676283
+                     |
+               _cons |   9.043164   6.803939     1.33   0.186    -4.394589    22.48092
+--------------------------------------------------------------------------------------
+
+. 
+. reg LTBeliefPrior ib0.surveyLeaderFemale ib0.Female i.LTHighEff RGNumRiskyChoice ParameterReturnDiff i.ParameterZero i.Round $covariat
+> es, vce(cluster ID)
+
+Linear regression                               Number of obs     =        800
+                                                F(16, 159)        =      10.47
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.2376
+                                                Root MSE          =     24.924
+
+                                           (Std. err. adjusted for 160 clusters in ID)
+--------------------------------------------------------------------------------------
+                     |               Robust
+       LTBeliefPrior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------------+----------------------------------------------------------------
+1.surveyLeaderFemale |  -1.726801    2.55152    -0.68   0.500    -6.766044    3.312443
+            1.Female |   2.516436   2.740649     0.92   0.360    -2.896335    7.929208
+         1.LTHighEff |   25.38729   2.540367     9.99   0.000     20.37008    30.40451
+    RGNumRiskyChoice |      1.357   .9755666     1.39   0.166    -.5697404     3.28374
+ ParameterReturnDiff |   .0915697   .0203832     4.49   0.000      .051313    .1318265
+     1.ParameterZero |   2.061237    1.95228     1.06   0.293    -1.794508    5.916982
+                     |
+               Round |
+                  2  |  -.5417293   2.424703    -0.22   0.823    -5.330509     4.24705
+                  3  |  -5.311766   2.607283    -2.04   0.043    -10.46114   -.1623916
+                  4  |  -3.851259   2.719278    -1.42   0.159    -9.221823    1.519305
+                  5  |  -6.066797   2.587632    -2.34   0.020    -11.17736   -.9562342
+                     |
+                 Age |   .0806665   .3094563     0.26   0.795    -.5305085    .6918415
+         1.Economics |  -2.170745   6.885767    -0.32   0.753    -15.77011    11.42862
+                1.UG |   3.402413   3.001147     1.13   0.259    -2.524841    9.329668
+        1.Australian |  -4.854661   3.374268    -1.44   0.152    -11.51883    1.809506
+             PastExp |  -.6403909   .7293586    -0.88   0.381    -2.080871    .8000896
+            CRTScore |   2.351079    1.38487     1.70   0.092    -.3840337    5.086192
+               _cons |   3.035086   11.96516     0.25   0.800    -20.59607    26.66624
+--------------------------------------------------------------------------------------
+
+. 
+. *******************************************************************************
+. 
+. /*
+> Table B4: OLS regressions of evaluators' posterior belief that the leader has chosen high investment, at the pooled level and separate
+> ly by the evaluator's gender
+> */
+. 
+. use "Data/beliefs_gender-merged-state.dta", clear
+
+. keep if LTRoleMember
+(1,160 observations deleted)
+
+. keep if LTInconsistent==0 & LTNonupdate==0
+(740 observations deleted)
+
+. 
+. global covariates "Age i.Economics i.UG i.Australian PastExp CRTScore"
+
+. 
+. local p=0.75
+
+. local q=1-`p'
+
+. gen LTBeliefTheory=.
+(1,600 missing values generated)
+
+. replace LTBeliefTheory = ((`p'*LTBeliefPrior/100)/(`p'*LTBeliefPrior/100+`q'*(1-LTBeliefPrior/100)))*100 if StateSuccess
+(800 real changes made)
+
+. replace LTBeliefTheory = ((`q'*LTBeliefPrior/100)/(`q'*LTBeliefPrior/100+`p'*(1-LTBeliefPrior/100)))*100 if StateFailure
+(800 real changes made)
+
+. 
+. reg LTBeliefPosterior i.surveyLeaderMale##i.StateFailure c.LTBeliefTheory i.Round, vce(cluster ID)
+
+Linear regression                               Number of obs     =      1,600
+                                                F(8, 159)         =     172.19
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5809
+                                                Root MSE          =     18.666
+
+                                                    (Std. err. adjusted for 160 clusters in ID)
+-----------------------------------------------------------------------------------------------
+                              |               Robust
+            LTBeliefPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------------+----------------------------------------------------------------
+           1.surveyLeaderMale |  -.4293931   2.133989    -0.20   0.841    -4.644014    3.785228
+               1.StateFailure |   -5.28737   2.423855    -2.18   0.031    -10.07447   -.5002645
+                              |
+surveyLeaderMale#StateFailure |
+                         1 1  |   -2.45598   2.926991    -0.84   0.403    -8.236776    3.324815
+                              |
+               LTBeliefTheory |   .6258254   .0320633    19.52   0.000     .5625005    .6891504
+                              |
+                        Round |
+                           2  |  -1.394131    1.18955    -1.17   0.243    -3.743486    .9552254
+                           3  |  -2.516365   1.384957    -1.82   0.071     -5.25165    .2189204
+                           4  |  -3.243206   1.444123    -2.25   0.026    -6.095343   -.3910686
+                           5  |  -3.012444   1.401537    -2.15   0.033    -5.780474   -.2444139
+                              |
+                        _cons |   21.46417   3.089674     6.95   0.000     15.36207    27.56626
+-----------------------------------------------------------------------------------------------
+
+. lincom 1.surveyLeaderMale + 1.surveyLeaderMale#1.StateFailure
+
+ ( 1)  1.surveyLeaderMale + 1.surveyLeaderMale#1.StateFailure = 0
+
+------------------------------------------------------------------------------
+LTBeliefPo~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -2.885374   1.786255    -1.62   0.108     -6.41322    .6424724
+------------------------------------------------------------------------------
+
+. reg LTBeliefPosterior i.surveyLeaderMale##i.StateFailure c.LTBeliefTheory i.LTHighEff RGNumRiskyChoice ParameterReturnDiff i.Parameter
+> Zero $covariates i.Round, vce(cluster ID)
+
+Linear regression                               Number of obs     =      1,600
+                                                F(18, 159)        =      95.12
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5904
+                                                Root MSE          =     18.509
+
+                                                    (Std. err. adjusted for 160 clusters in ID)
+-----------------------------------------------------------------------------------------------
+                              |               Robust
+            LTBeliefPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------------+----------------------------------------------------------------
+           1.surveyLeaderMale |  -.4432185   2.111197    -0.21   0.834    -4.612824    3.726387
+               1.StateFailure |  -6.165086   2.471042    -2.49   0.014    -11.04538   -1.284788
+                              |
+surveyLeaderMale#StateFailure |
+                         1 1  |  -2.404828   2.926172    -0.82   0.412    -8.184006    3.374349
+                              |
+               LTBeliefTheory |   .6006175   .0346431    17.34   0.000     .5321976    .6690375
+                  1.LTHighEff |   3.070344   1.382715     2.22   0.028     .3394881    5.801201
+             RGNumRiskyChoice |   .1292067   .3714867     0.35   0.728    -.6044781    .8628914
+          ParameterReturnDiff |   .0186153   .0116754     1.59   0.113    -.0044436    .0416742
+              1.ParameterZero |   1.677465   1.051216     1.60   0.113    -.3986837    3.753613
+                          Age |    .240733   .1222388     1.97   0.051    -.0006882    .4821542
+                  1.Economics |  -4.040517   2.181832    -1.85   0.066    -8.349627    .2685928
+                         1.UG |   2.302249   1.686045     1.37   0.174    -1.027683    5.632181
+                 1.Australian |  -.6537212   1.626128    -0.40   0.688    -3.865319    2.557876
+                      PastExp |   .2149013   .3626043     0.59   0.554    -.5012408    .9310433
+                     CRTScore |   -1.69982   .7269518    -2.34   0.021    -3.135547   -.2640926
+                              |
+                        Round |
+                           2  |   -1.25637    1.17203    -1.07   0.285    -3.571124    1.058384
+                           3  |  -3.090417   1.501061    -2.06   0.041    -6.055006   -.1258278
+                           4  |  -2.999489   1.417028    -2.12   0.036    -5.798113   -.2008645
+                           5  |  -2.922206   1.375913    -2.12   0.035    -5.639628   -.2047831
+                              |
+                        _cons |   13.37798   5.890744     2.27   0.024     1.743786    25.01218
+-----------------------------------------------------------------------------------------------
+
+. lincom 1.surveyLeaderMale + 1.surveyLeaderMale#1.StateFailure
+
+ ( 1)  1.surveyLeaderMale + 1.surveyLeaderMale#1.StateFailure = 0
+
+------------------------------------------------------------------------------
+LTBeliefPo~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -2.848047   1.794808    -1.59   0.115    -6.392786    .6966918
+------------------------------------------------------------------------------
+
+. 
+. reg LTBeliefPosterior i.surveyLeaderMale##i.StateFailure c.LTBeliefTheory i.Round if !Female, vce(cluster ID)
+
+Linear regression                               Number of obs     =        770
+                                                F(8, 76)          =      86.58
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5748
+                                                Root MSE          =     19.189
+
+                                                     (Std. err. adjusted for 77 clusters in ID)
+-----------------------------------------------------------------------------------------------
+                              |               Robust
+            LTBeliefPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------------+----------------------------------------------------------------
+           1.surveyLeaderMale |   2.065537   3.142605     0.66   0.513    -4.193504    8.324578
+               1.StateFailure |   -4.86881   2.744314    -1.77   0.080    -10.33458    .5969657
+                              |
+surveyLeaderMale#StateFailure |
+                         1 1  |   -7.45862   4.160534    -1.79   0.077    -15.74504    .8278022
+                              |
+               LTBeliefTheory |   .6120742   .0382569    16.00   0.000     .5358789    .6882694
+                              |
+                        Round |
+                           2  |   .8960962    1.88681     0.47   0.636    -2.861811    4.654003
+                           3  |   -2.00936   2.175008    -0.92   0.358    -6.341264    2.322544
+                           4  |  -.3996222   2.278416    -0.18   0.861    -4.937481    4.138236
+                           5  |  -1.522294    2.20352    -0.69   0.492    -5.910984    2.866396
+                              |
+                        _cons |   20.10844   3.269538     6.15   0.000      13.5966    26.62029
+-----------------------------------------------------------------------------------------------
+
+. lincom 1.surveyLeaderMale + 1.surveyLeaderMale#1.StateFailure
+
+ ( 1)  1.surveyLeaderMale + 1.surveyLeaderMale#1.StateFailure = 0
+
+------------------------------------------------------------------------------
+LTBeliefPo~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -5.393083   2.455883    -2.20   0.031     -10.2844   -.5017675
+------------------------------------------------------------------------------
+
+. reg LTBeliefPosterior i.surveyLeaderMale##i.StateFailure c.LTBeliefTheory i.LTHighEff RGNumRiskyChoice ParameterReturnDiff i.Parameter
+> Zero $covariates i.Round if !Female, vce(cluster ID)
+
+Linear regression                               Number of obs     =        770
+                                                F(18, 76)         =      56.93
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5862
+                                                Root MSE          =     19.058
+
+                                                     (Std. err. adjusted for 77 clusters in ID)
+-----------------------------------------------------------------------------------------------
+                              |               Robust
+            LTBeliefPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------------+----------------------------------------------------------------
+           1.surveyLeaderMale |   2.570285   3.020354     0.85   0.397    -3.445271    8.585841
+               1.StateFailure |  -5.564274   2.777275    -2.00   0.049     -11.0957   -.0328525
+                              |
+surveyLeaderMale#StateFailure |
+                         1 1  |  -7.420863   4.183102    -1.77   0.080    -15.75223    .9105079
+                              |
+               LTBeliefTheory |   .5914864   .0399177    14.82   0.000     .5119834    .6709895
+                  1.LTHighEff |   2.396564   1.989001     1.20   0.232    -1.564874    6.358003
+             RGNumRiskyChoice |   .2300889   .5300918     0.43   0.665    -.8256804    1.285858
+          ParameterReturnDiff |   .0283695   .0182727     1.55   0.125    -.0080238    .0647628
+              1.ParameterZero |   .9782662   1.552243     0.63   0.530    -2.113293    4.069825
+                          Age |   .3450427   .2329774     1.48   0.143    -.1189719    .8090573
+                  1.Economics |  -3.897188   4.362135    -0.89   0.374    -12.58513    4.790756
+                         1.UG |   3.815231   2.712557     1.41   0.164    -1.587294    9.217756
+                 1.Australian |   .8283924   2.278594     0.36   0.717    -3.709821    5.366605
+                      PastExp |   .6572243   .4018827     1.64   0.106    -.1431944    1.457643
+                     CRTScore |  -.3991704    1.07274    -0.37   0.711    -2.535717    1.737376
+                              |
+                        Round |
+                           2  |   .8651844   1.876346     0.46   0.646    -2.871882    4.602251
+                           3  |  -1.991651   2.374838    -0.84   0.404     -6.72155    2.738248
+                           4  |  -.3186987   2.224872    -0.14   0.886    -4.749915    4.112518
+                           5  |  -1.557488    2.17368    -0.72   0.476    -5.886747     2.77177
+                              |
+                        _cons |   2.401772   8.802599     0.27   0.786    -15.13012    19.93367
+-----------------------------------------------------------------------------------------------
+
+. lincom 1.surveyLeaderMale + 1.surveyLeaderMale#1.StateFailure
+
+ ( 1)  1.surveyLeaderMale + 1.surveyLeaderMale#1.StateFailure = 0
+
+------------------------------------------------------------------------------
+LTBeliefPo~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -4.850578   2.588441    -1.87   0.065     -10.0059    .3047494
+------------------------------------------------------------------------------
+
+. 
+. reg LTBeliefPosterior i.surveyLeaderMale##i.StateFailure c.LTBeliefTheory i.Round if Female, vce(cluster ID)
+
+Linear regression                               Number of obs     =        830
+                                                F(8, 82)          =      92.97
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5937
+                                                Root MSE          =     18.096
+
+                                                     (Std. err. adjusted for 83 clusters in ID)
+-----------------------------------------------------------------------------------------------
+                              |               Robust
+            LTBeliefPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------------+----------------------------------------------------------------
+           1.surveyLeaderMale |  -2.701617   2.951183    -0.92   0.363    -8.572461    3.169226
+               1.StateFailure |  -5.587635   4.047278    -1.38   0.171    -13.63896     2.46369
+                              |
+surveyLeaderMale#StateFailure |
+                         1 1  |   2.091371   4.100897     0.51   0.611     -6.06662    10.24936
+                              |
+               LTBeliefTheory |   .6409272   .0523106    12.25   0.000     .5368647    .7449897
+                              |
+                        Round |
+                           2  |  -3.551423   1.426207    -2.49   0.015    -6.388602   -.7142427
+                           3  |  -2.980942   1.769556    -1.68   0.096    -6.501152    .5392675
+                           4  |  -5.901909   1.753846    -3.37   0.001    -9.390868    -2.41295
+                           5  |  -4.393172   1.773652    -2.48   0.015    -7.921531   -.8648132
+                              |
+                        _cons |   22.55875    5.36507     4.20   0.000     11.88592    33.23158
+-----------------------------------------------------------------------------------------------
+
+. lincom 1.surveyLeaderMale + 1.surveyLeaderMale#1.StateFailure
+
+ ( 1)  1.surveyLeaderMale + 1.surveyLeaderMale#1.StateFailure = 0
+
+------------------------------------------------------------------------------
+LTBeliefPo~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.6102464   2.563313    -0.24   0.812    -5.709494    4.489001
+------------------------------------------------------------------------------
+
+. reg LTBeliefPosterior i.surveyLeaderMale##i.StateFailure c.LTBeliefTheory i.LTHighEff RGNumRiskyChoice ParameterReturnDiff i.Parameter
+> Zero $covariates i.Round if Female, vce(cluster ID)
+
+Linear regression                               Number of obs     =        830
+                                                F(18, 82)         =      55.24
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.6089
+                                                Root MSE          =     17.863
+
+                                                     (Std. err. adjusted for 83 clusters in ID)
+-----------------------------------------------------------------------------------------------
+                              |               Robust
+            LTBeliefPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------------+----------------------------------------------------------------
+           1.surveyLeaderMale |  -2.598131   2.968438    -0.88   0.384      -8.5033    3.307038
+               1.StateFailure |  -6.901622   4.188275    -1.65   0.103    -15.23344    1.430192
+                              |
+surveyLeaderMale#StateFailure |
+                         1 1  |     2.1742   4.099143     0.53   0.597      -5.9803     10.3287
+                              |
+               LTBeliefTheory |   .6042321   .0585657    10.32   0.000     .4877263    .7207378
+                  1.LTHighEff |   3.693523   2.063875     1.79   0.077    -.4121808    7.799227
+             RGNumRiskyChoice |   .3160155   .6162032     0.51   0.609    -.9098091     1.54184
+          ParameterReturnDiff |   .0102823    .015423     0.67   0.507    -.0203989    .0409636
+              1.ParameterZero |    2.31851   1.482281     1.56   0.122    -.6302194     5.26724
+                          Age |   .1709155   .1170573     1.46   0.148    -.0619488    .4037798
+                  1.Economics |  -4.708411   2.645694    -1.78   0.079     -9.97154    .5547177
+                         1.UG |   .9016392   2.156798     0.42   0.677    -3.388918    5.192197
+                 1.Australian |  -2.500228   2.515981    -0.99   0.323    -7.505316     2.50486
+                      PastExp |  -.5651929   .8059709    -0.70   0.485    -2.168526     1.03814
+                     CRTScore |  -2.453403   .9985743    -2.46   0.016    -4.439885   -.4669203
+                              |
+                        Round |
+                           2  |  -3.154703   1.422833    -2.22   0.029    -5.985171   -.3242354
+                           3  |  -4.139178    1.95575    -2.12   0.037    -8.029787   -.2485677
+                           4  |  -5.517954   1.749201    -3.15   0.002    -8.997673   -2.038235
+                           5  |  -4.176494   1.740463    -2.40   0.019    -7.638829   -.7141593
+                              |
+                        _cons |   20.96892   7.306556     2.87   0.005     6.433856    35.50399
+-----------------------------------------------------------------------------------------------
+
+. lincom 1.surveyLeaderMale + 1.surveyLeaderMale#1.StateFailure
+
+ ( 1)  1.surveyLeaderMale + 1.surveyLeaderMale#1.StateFailure = 0
+
+------------------------------------------------------------------------------
+LTBeliefPo~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.4239305   2.383173    -0.18   0.859     -5.16482    4.316959
+------------------------------------------------------------------------------
+
+. 
+. *******************************************************************************
+. 
+. /*
+> Figure C1: Distribution of inconsistent and non-updates by evaluators
+> */
+. 
+. // Panel (a): Inconsistent updates
+. 
+. use "Data/beliefs_gender-merged.dta", clear
+
+. keep if LTRoleMember
+(116 observations deleted)
+
+. 
+. twoway histogram LTBeliefIncTotal, discrete width(1) start(0) percent ///
+>         yscale(range(0 60)) ylabel(0(20)60, labsize(medlarge) angle(horizontal)) ///
+>         xscale(range(0 10)) xlabel(0(1)10, labsize(medlarge)) ///
+>         xtitle("# updates in wrong direction", size(medlarge)) ///
+>         ytitle("% evaluators", size(medlarge)) ///
+>         graphregion(color(white)) bgcolor(white) fcolor(gs6) lcolor(gs12)
+
+. graph export "Figures/FigureC1a.png", replace
+(file Figures/FigureC1a.png not found)
+file Figures/FigureC1a.png saved as PNG format
+
+. window manage close graph _all
+
+. 
+. // Panel (b): Non-updates
+. 
+. use "Data/beliefs_gender-merged.dta", clear
+
+. keep if LTRoleMember
+(116 observations deleted)
+
+. 
+. twoway histogram LTBeliefNonTotal, discrete width(1) start(0) percent ///
+>         yscale(range(0 60)) ylabel(0(20)60, labsize(medlarge) angle(horizontal)) ///
+>         xscale(range(0 10)) xlabel(0(1)10, labsize(medlarge)) ///
+>         xtitle("# non-updates", size(medlarge)) ///
+>         ytitle("% evaluators", size(medlarge)) ///
+>         graphregion(color(white)) bgcolor(white) fcolor(gs6) lcolor(gs12)
+
+. graph export "Figures/FigureC1b.png", replace
+(file Figures/FigureC1b.png not found)
+file Figures/FigureC1b.png saved as PNG format
+
+. window manage close graph _all
+
+. 
+. *******************************************************************************
+. 
+. /*
+> Table C1: OLS regressions of evaluators' posterior belief that the leader has chosen high investment, at pooled level and by the leade
+> r's gender (full sample)
+> */
+. 
+. use "Data/beliefs_gender-merged-state.dta", clear
+
+. keep if LTRoleMember
+(1,160 observations deleted)
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =      2,340
+                                                F(3, 233)         =     104.40
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.4673
+                                                Root MSE          =     2.5876
+
+                                     (Std. err. adjusted for 234 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .6131863   .0452321    13.56   0.000       .52407    .7023025
+LogitStateGood |    .536749   .1000564     5.36   0.000     .3396181    .7338799
+ LogitStateBad |   .6880233   .0858155     8.02   0.000     .5189498    .8570969
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.3868137   .0452321    -8.55   0.000      -.47593   -.2976975
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   -.463251   .1000564    -4.63   0.000    -.6603819   -.2661201
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.3119767   .0858155    -3.64   0.000    -.4810502   -.1429031
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if surveyLeaderMale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =      1,140
+                                                F(3, 113)         =      65.29
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.4667
+                                                Root MSE          =     2.7131
+
+                                     (Std. err. adjusted for 114 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .6068093   .0552664    10.98   0.000     .4973167     .716302
+LogitStateGood |   .5352552   .1740404     3.08   0.003     .1904497    .8800607
+ LogitStateBad |   .8903367   .1286089     6.92   0.000     .6355393    1.145134
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.3931907   .0552664    -7.11   0.000    -.5026833    -.283698
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.4647448   .1740404    -2.67   0.009    -.8095503   -.1199393
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.1096633   .1286089    -0.85   0.396    -.3644607    .1451342
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if surveyLeaderFemale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =      1,200
+                                                F(3, 119)         =      44.30
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.4718
+                                                Root MSE          =     2.4571
+
+                                     (Std. err. adjusted for 120 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .6208877   .0724496     8.57   0.000     .4774303    .7643451
+LogitStateGood |   .5406627   .1031036     5.24   0.000     .3365073    .7448181
+ LogitStateBad |    .493331   .1126348     4.38   0.000      .270303    .7163591
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.3791123   .0724496    -5.23   0.000    -.5225697   -.2356549
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.4593373   .1031036    -4.46   0.000    -.6634927   -.2551819
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   -.506669   .1126348    -4.50   0.000     -.729697   -.2836409
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior i.surveyLeaderFemale#c.LogitPrior i.surveyLeaderFemale#c.LogitStateGood i.surveyLeaderFemale#c.LogitStateBad, nocon
+>  vce(cluster ID)
+
+Linear regression                               Number of obs     =      2,340
+                                                F(6, 233)         =      55.01
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.4691
+                                                Root MSE          =      2.585
+
+                                                          (Std. err. adjusted for 234 clusters in ID)
+-----------------------------------------------------------------------------------------------------
+                                    |               Robust
+                     LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------------------+----------------------------------------------------------------
+    surveyLeaderFemale#c.LogitPrior |
+                                 0  |   .6068093   .0551519    11.00   0.000     .4981492    .7154695
+                                 1  |   .6208877   .0723188     8.59   0.000     .4784055    .7633699
+                                    |
+surveyLeaderFemale#c.LogitStateGood |
+                                 0  |   .5352552   .1736801     3.08   0.002     .1930711    .8774392
+                                 1  |   .5406627   .1029174     5.25   0.000     .3378951    .7434303
+                                    |
+ surveyLeaderFemale#c.LogitStateBad |
+                                 0  |   .8903367   .1283426     6.94   0.000     .6374764    1.143197
+                                 1  |    .493331   .1124313     4.39   0.000      .271819     .714843
+-----------------------------------------------------------------------------------------------------
+
+. testparm surveyLeaderFemale#c.LogitPrior, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitPrior + 1.surveyLeaderFemale#c.LogitPrior = 0
+
+       F(  1,   233) =    0.02
+            Prob > F =    0.8771
+
+. testparm surveyLeaderFemale#c.LogitStateGood, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateGood + 1.surveyLeaderFemale#c.LogitStateGood = 0
+
+       F(  1,   233) =    0.00
+            Prob > F =    0.9787
+
+. testparm surveyLeaderFemale#c.LogitStateBad, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateBad + 1.surveyLeaderFemale#c.LogitStateBad = 0
+
+       F(  1,   233) =    5.41
+            Prob > F =    0.0208
+
+. 
+. *******************************************************************************
+. 
+. /*
+> Table C2: OLS regressions of evaluators' posterior belief that the leader has chosen high investment, by the leader's gender and evalu
+> ator's gender (full sample)
+> */
+. 
+. use "Data/beliefs_gender-merged-state.dta", clear
+
+. keep if LTRoleMember
+(1,160 observations deleted)
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if Female & surveyLeaderMale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        540
+                                                F(3, 53)          =      42.85
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5317
+                                                Root MSE          =     2.0501
+
+                                      (Std. err. adjusted for 54 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .6347304   .0848379     7.48   0.000     .4645671    .8048937
+LogitStateGood |   .7165382   .1478592     4.85   0.000     .4199703    1.013106
+ LogitStateBad |   .6932616   .1490024     4.65   0.000     .3944007    .9921226
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.3652696   .0848379    -4.31   0.000    -.5354329   -.1951063
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.2834618   .1478592    -1.92   0.061    -.5800297    .0131062
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.3067384   .1490024    -2.06   0.044    -.6055993   -.0078774
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if Female & surveyLeaderFemale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        600
+                                                F(3, 59)          =      28.25
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.4354
+                                                Root MSE          =     2.1767
+
+                                      (Std. err. adjusted for 60 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .5808791   .0865647     6.71   0.000     .4076636    .7540947
+LogitStateGood |   .5315194   .1414144     3.76   0.000     .2485499     .814489
+ LogitStateBad |    .586982   .1696102     3.46   0.001     .2475928    .9263713
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.4191209   .0865647    -4.84   0.000    -.5923364   -.2459053
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.4684806   .1414144    -3.31   0.002    -.7514501    -.185511
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   -.413018   .1696102    -2.44   0.018    -.7524072   -.0736287
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior i.surveyLeaderFemale#c.LogitPrior i.surveyLeaderFemale#c.LogitStateGood i.surveyLeaderFemale#c.LogitStateBad if Fem
+> ale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =      1,140
+                                                F(6, 113)         =      35.85
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.4826
+                                                Root MSE          =     2.1177
+
+                                                          (Std. err. adjusted for 114 clusters in ID)
+-----------------------------------------------------------------------------------------------------
+                                    |               Robust
+                     LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------------------+----------------------------------------------------------------
+    surveyLeaderFemale#c.LogitPrior |
+                                 0  |   .6347304   .0844486     7.52   0.000     .4674226    .8020383
+                                 1  |   .5808791   .0862648     6.73   0.000     .4099731    .7517852
+                                    |
+surveyLeaderFemale#c.LogitStateGood |
+                                 0  |   .7165382   .1471806     4.87   0.000     .4249469     1.00813
+                                 1  |   .5315194   .1409244     3.77   0.000     .2523227    .8107162
+                                    |
+ surveyLeaderFemale#c.LogitStateBad |
+                                 0  |   .6932616   .1483186     4.67   0.000     .3994157    .9871075
+                                 1  |    .586982   .1690226     3.47   0.001     .2521179    .9218462
+-----------------------------------------------------------------------------------------------------
+
+. testparm surveyLeaderFemale#c.LogitPrior, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitPrior + 1.surveyLeaderFemale#c.LogitPrior = 0
+
+       F(  1,   113) =    0.20
+            Prob > F =    0.6564
+
+. testparm surveyLeaderFemale#c.LogitStateGood, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateGood + 1.surveyLeaderFemale#c.LogitStateGood = 0
+
+       F(  1,   113) =    0.82
+            Prob > F =    0.3658
+
+. testparm surveyLeaderFemale#c.LogitStateBad, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateBad + 1.surveyLeaderFemale#c.LogitStateBad = 0
+
+       F(  1,   113) =    0.22
+            Prob > F =    0.6374
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if !Female & surveyLeaderMale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        600
+                                                F(3, 59)          =      36.47
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.4418
+                                                Root MSE          =     3.1888
+
+                                      (Std. err. adjusted for 60 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |    .585805   .0718098     8.16   0.000      .442114     .729496
+LogitStateGood |   .3632614   .3059401     1.19   0.240    -.2489232     .975446
+ LogitStateBad |   1.076543   .2060193     5.23   0.000     .6642997    1.488787
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   -.414195   .0718098    -5.77   0.000     -.557886    -.270504
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.6367386   .3059401    -2.08   0.042    -1.248923    -.024554
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   .0765434   .2060193     0.37   0.712    -.3357003     .488787
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if !Female & surveyLeaderFemale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        600
+                                                F(3, 59)          =      21.79
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.4946
+                                                Root MSE          =     2.7094
+
+                                      (Std. err. adjusted for 60 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |    .644373   .1018251     6.33   0.000     .4406214    .8481247
+LogitStateGood |   .5432727   .1489423     3.65   0.001     .2452398    .8413056
+ LogitStateBad |   .4062132   .1476672     2.75   0.008     .1107318    .7016946
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   -.355627   .1018251    -3.49   0.001    -.5593786   -.1518753
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.4567273   .1489423    -3.07   0.003    -.7547602   -.1586944
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.5937868   .1476672    -4.02   0.000    -.8892682   -.2983054
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior i.surveyLeaderFemale#c.LogitPrior i.surveyLeaderFemale#c.LogitStateGood i.surveyLeaderFemale#c.LogitStateBad if !Fe
+> male, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =      1,200
+                                                F(6, 119)         =      29.35
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.4652
+                                                Root MSE          =     2.9588
+
+                                                          (Std. err. adjusted for 120 clusters in ID)
+-----------------------------------------------------------------------------------------------------
+                                    |               Robust
+                     LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------------------+----------------------------------------------------------------
+    surveyLeaderFemale#c.LogitPrior |
+                                 0  |    .585805   .0715372     8.19   0.000     .4441541    .7274559
+                                 1  |    .644373   .1014387     6.35   0.000     .4435142    .8452318
+                                    |
+surveyLeaderFemale#c.LogitStateGood |
+                                 0  |   .3632614    .304779     1.19   0.236    -.2402315    .9667543
+                                 1  |   .5432727   .1483771     3.66   0.000     .2494712    .8370742
+                                    |
+ surveyLeaderFemale#c.LogitStateBad |
+                                 0  |   1.076543   .2052374     5.25   0.000     .6701528    1.482934
+                                 1  |   .4062132   .1471068     2.76   0.007     .1149271    .6974993
+-----------------------------------------------------------------------------------------------------
+
+. testparm surveyLeaderFemale#c.LogitPrior, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitPrior + 1.surveyLeaderFemale#c.LogitPrior = 0
+
+       F(  1,   119) =    0.22
+            Prob > F =    0.6379
+
+. testparm surveyLeaderFemale#c.LogitStateGood, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateGood + 1.surveyLeaderFemale#c.LogitStateGood = 0
+
+       F(  1,   119) =    0.28
+            Prob > F =    0.5964
+
+. testparm surveyLeaderFemale#c.LogitStateBad, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateBad + 1.surveyLeaderFemale#c.LogitStateBad = 0
+
+       F(  1,   119) =    7.05
+            Prob > F =    0.0090
+
+. 
+. *******************************************************************************
+. 
+. /*
+> Table C3: OLS regressions of evaluators' posterior belief that the leader has chosen high investment, by the leader's gender and evalu
+> ator's investment decision (full sample)
+> */
+. 
+. use "Data/beliefs_gender-merged-state.dta", clear
+
+. keep if LTRoleMember
+(1,160 observations deleted)
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if !LTHighEff & surveyLeaderMale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        764
+                                                F(3, 103)         =      51.44
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.4931
+                                                Root MSE          =     2.7383
+
+                                     (Std. err. adjusted for 104 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .5790575   .0721747     8.02   0.000     .4359161    .7221989
+LogitStateGood |   .1531363   .1882477     0.81   0.418    -.2202087    .5264813
+ LogitStateBad |   .8591191   .1796839     4.78   0.000     .5027585     1.21548
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.4209425   .0721747    -5.83   0.000    -.5640839   -.2778011
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.8468637   .1882477    -4.50   0.000    -1.220209   -.4735187
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.1408809   .1796839    -0.78   0.435    -.4972415    .2154796
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if !LTHighEff & surveyLeaderFemale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        850
+                                                F(3, 114)         =      45.31
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5499
+                                                Root MSE          =     2.4867
+
+                                     (Std. err. adjusted for 115 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .6600281   .0773881     8.53   0.000     .5067228    .8133334
+LogitStateGood |    .448787   .1336499     3.36   0.001     .1840277    .7135464
+ LogitStateBad |   .5054437   .1464943     3.45   0.001     .2152396    .7956479
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.3399719   .0773881    -4.39   0.000    -.4932772   -.1866666
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   -.551213   .1336499    -4.12   0.000    -.8159723   -.2864536
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.4945563   .1464943    -3.38   0.001    -.7847604   -.2043521
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior i.surveyLeaderFemale#c.LogitPrior i.surveyLeaderFemale#c.LogitStateGood i.surveyLeaderFemale#c.LogitStateBad if !LT
+> HighEff, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =      1,614
+                                                F(6, 218)         =      48.57
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5219
+                                                Root MSE          =     2.6088
+
+                                                          (Std. err. adjusted for 219 clusters in ID)
+-----------------------------------------------------------------------------------------------------
+                                    |               Robust
+                     LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------------------+----------------------------------------------------------------
+    surveyLeaderFemale#c.LogitPrior |
+                                 0  |   .5790575   .0720086     8.04   0.000     .4371352    .7209797
+                                 1  |   .6600281   .0772563     8.54   0.000     .5077633    .8122929
+                                    |
+surveyLeaderFemale#c.LogitStateGood |
+                                 0  |   .1531363   .1878148     0.82   0.416    -.2170289    .5233015
+                                 1  |    .448787   .1334221     3.36   0.001     .1858246    .7117494
+                                    |
+ surveyLeaderFemale#c.LogitStateBad |
+                                 0  |   .8591191   .1792706     4.79   0.000     .5057936    1.212444
+                                 1  |   .5054437   .1462447     3.46   0.001     .2172092    .7936783
+-----------------------------------------------------------------------------------------------------
+
+. testparm surveyLeaderFemale#c.LogitPrior, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitPrior + 1.surveyLeaderFemale#c.LogitPrior = 0
+
+       F(  1,   218) =    0.59
+            Prob > F =    0.4441
+
+. testparm surveyLeaderFemale#c.LogitStateGood, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateGood + 1.surveyLeaderFemale#c.LogitStateGood = 0
+
+       F(  1,   218) =    1.65
+            Prob > F =    0.2007
+
+. testparm surveyLeaderFemale#c.LogitStateBad, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateBad + 1.surveyLeaderFemale#c.LogitStateBad = 0
+
+       F(  1,   218) =    2.34
+            Prob > F =    0.1278
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if LTHighEff & surveyLeaderMale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        376
+                                                F(3, 75)          =      51.77
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.4375
+                                                Root MSE          =     2.5868
+
+                                      (Std. err. adjusted for 76 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .6071701   .0704371     8.62   0.000     .4668521    .7474881
+LogitStateGood |    1.19983   .3270755     3.67   0.000     .5482622    1.851398
+ LogitStateBad |   1.065627   .1845679     5.77   0.000     .6979485    1.433305
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.3928299   .0704371    -5.58   0.000    -.5331479   -.2525119
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |     .19983   .3270755     0.61   0.543    -.4517378    .8513977
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |   .0656266   .1845679     0.36   0.723    -.3020515    .4333048
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior LogitPrior LogitStateGood LogitStateBad if LTHighEff & surveyLeaderFemale, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        350
+                                                F(3, 76)          =      14.24
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.1682
+                                                Root MSE          =     2.2148
+
+                                      (Std. err. adjusted for 77 clusters in ID)
+--------------------------------------------------------------------------------
+               |               Robust
+LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+    LogitPrior |   .2841352   .1844976     1.54   0.128    -.0833235     .651594
+LogitStateGood |   .9106153   .1913512     4.76   0.000     .5295064    1.291724
+ LogitStateBad |   .3170883   .1819665     1.74   0.085    -.0453293    .6795059
+--------------------------------------------------------------------------------
+
+. lincom LogitPrior-1
+
+ ( 1)  LogitPrior = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.7158648   .1844976    -3.88   0.000    -1.083324    -.348406
+------------------------------------------------------------------------------
+
+. lincom LogitStateGood-1
+
+ ( 1)  LogitStateGood = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.0893847   .1913512    -0.47   0.642    -.4704936    .2917243
+------------------------------------------------------------------------------
+
+. lincom LogitStateBad-1
+
+ ( 1)  LogitStateBad = 1
+
+------------------------------------------------------------------------------
+LogitPoste~r | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         (1) |  -.6829117   .1819665    -3.75   0.000    -1.045329   -.3204941
+------------------------------------------------------------------------------
+
+. 
+. reg LogitPosterior i.surveyLeaderFemale#c.LogitPrior i.surveyLeaderFemale#c.LogitStateGood i.surveyLeaderFemale#c.LogitStateBad if LTH
+> ighEff, nocon vce(cluster ID)
+
+Linear regression                               Number of obs     =        726
+                                                F(6, 152)         =      33.18
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.3525
+                                                Root MSE          =     2.4146
+
+                                                          (Std. err. adjusted for 153 clusters in ID)
+-----------------------------------------------------------------------------------------------------
+                                    |               Robust
+                     LogitPosterior | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------------------+----------------------------------------------------------------
+    surveyLeaderFemale#c.LogitPrior |
+                                 0  |   .6071701   .0702572     8.64   0.000     .4683633    .7459769
+                                 1  |   .2841352   .1840055     1.54   0.125    -.0794033    .6476738
+                                    |
+surveyLeaderFemale#c.LogitStateGood |
+                                 0  |    1.19983   .3262401     3.68   0.000     .5552795     1.84438
+                                 1  |   .9106153   .1908408     4.77   0.000     .5335722    1.287658
+                                    |
+ surveyLeaderFemale#c.LogitStateBad |
+                                 0  |   1.065627   .1840965     5.79   0.000     .7019083    1.429345
+                                 1  |   .3170883   .1814811     1.75   0.083    -.0414629    .6756395
+-----------------------------------------------------------------------------------------------------
+
+. testparm surveyLeaderFemale#c.LogitPrior, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitPrior + 1.surveyLeaderFemale#c.LogitPrior = 0
+
+       F(  1,   152) =    2.69
+            Prob > F =    0.1031
+
+. testparm surveyLeaderFemale#c.LogitStateGood, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateGood + 1.surveyLeaderFemale#c.LogitStateGood = 0
+
+       F(  1,   152) =    0.59
+            Prob > F =    0.4453
+
+. testparm surveyLeaderFemale#c.LogitStateBad, equal
+
+ ( 1)  - 0b.surveyLeaderFemale#c.LogitStateBad + 1.surveyLeaderFemale#c.LogitStateBad = 0
+
+       F(  1,   152) =    8.38
+            Prob > F =    0.0043
+
+. 
+. *******************************************************************************
+. 
+. capture log close _all
